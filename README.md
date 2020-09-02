@@ -1,2 +1,0 @@
-# interviewPractice
-Coding Data Structure
