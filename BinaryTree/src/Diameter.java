@@ -1,4 +1,5 @@
 public class Diameter {
+
     //Write a function that returns the length of the longest leaf-to-leaf path in a binary tree
     static class D{
         int diameter = Integer.MIN_VALUE;
