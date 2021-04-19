@@ -1,5 +1,5 @@
 public class UniValSubTrees {
-
+//leetcode 250
     public static int num = 0;
 
     public static int uniValSubTrees(TreeNode tree) {
@@ -7,7 +7,6 @@ public class UniValSubTrees {
         ifUniValSubTreesHelper(tree);
         return num;
     }
-
 
     private static boolean ifUniValSubTreesHelper(TreeNode tree) {
 
