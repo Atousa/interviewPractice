@@ -1,21 +1,26 @@
 public class Diameter {
     public static int maxDiam = Integer.MIN_VALUE;
 
-    public static int diameter(TreeNode root) {
+    public static int height(TreeNode root) {
         if(root == null)
             return 0;
 
-        int leftDiam = diameter(root.getLeftNode());
-        int rightDiam = diameter(root.getRightNode());
+        int leftHeight = height(root.getLeftNode());
+        int rightHeight = height(root.getRightNode());
 
-        int m =  leftDiam + rightDiam;
-        if(m > maxDiam) maxDiam = m;
-        return (Math.max(leftDiam,rightDiam) + 1);
+        int maxPathForRoute =  leftHeight + rightHeight;
+        if(maxPathForRoute > maxDiam) maxDiam = maxPathForRoute;
+        return (Math.max(leftHeight,rightHeight) + 1);
+    }
+
+    public static int diameter(TreeNode root) {
+        height(root);
+        return maxDiam;
     }
 
     public static void main(String[] args) {
-        TreeNode t0 = new TreeNode(0);
-        TreeNode t1 = new TreeNode(1);
+        TreeNode t0 = new TreeNode(1);
+        TreeNode t1 = new TreeNode(2);
 //        TreeNode t2 = new TreeNode(2);
 //        TreeNode t3 = new TreeNode(3);
 //        TreeNode t4 = new TreeNode(4);
@@ -40,5 +45,5 @@ public class Diameter {
         diameter(t0);
         System.out.println(maxDiam);
     }
-
 }
+
