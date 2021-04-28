@@ -1,5 +1,5 @@
 public class BuildTreeFromSortedArray {
-
+//Tc = O(n) , SC= o(logn)+ 0(n)
     public static TreeNode buildTreeFromSortedArray(int[] arr) {
         return helper(arr, 0, arr.length-1);
     }
