@@ -1,5 +1,11 @@
 public class ZombiCluster {
 
+//    There are zombies in Seattle. Some of them know each other directly. Others might know each other transitively, through others. For example, if zombies A<->B and B<->C know each other directly, then A and C know each other indirectly and all three belong to one cluster.
+//    Knowing which zombies know each other directly, find the number of the zombie clusters.
+//    Input is a square matrix where each cell, zombies[A][B], indicates whether zombie A knows zombie B directly.
+//
+//
+
     public static int zombieCluster(List<String> zombies) {
         // Write your code here
         int numRow = zombies.size();
@@ -25,6 +31,6 @@ public class ZombiCluster {
         }
         return;
     }
-    
+
 
 }
