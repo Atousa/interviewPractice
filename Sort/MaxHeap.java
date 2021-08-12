@@ -53,7 +53,7 @@ public class MaxHeap {
     }
 
     private void heapifyUpOneLevel(int[] arr, int fromIdx) {
-        int parentIdx = fromIdx - 2 / 2;
+        int parentIdx = fromIdx / 2;
         if (parentIdx >= 0) {
             if (arr[parentIdx] < arr[fromIdx]) {
                 swap(parentIdx, fromIdx);
