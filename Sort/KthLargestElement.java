@@ -34,7 +34,7 @@ public class KthLargestElement {
         int smaller = s;
         int greater = s;
 
-        while(greater < arr.length) {
+        while(greater <= e) {
             if(arr[greater] < pivot) {
                 smaller++;
                 SwapElement.swapElement(arr,smaller, greater);
