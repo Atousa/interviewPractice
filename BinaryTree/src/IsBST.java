@@ -6,7 +6,7 @@ public class IsBST {
     private static boolean isBSTHelper(TreeNode root , int min, int max) {
         if(root==null) return true;
         if(root.getData() < min && root.getData() > max) return false;
-        return isBSTHelper(root.getLeftNode(), min, root.getData()) && isBSTHelper(root.getRightNode(), root.getData(), max);
+        return isBSTHelper(root.getLeftNode(), min, root.getData()+1) && isBSTHelper(root.getRightNode(), root.getData()-1, max);
 
     }
 }
