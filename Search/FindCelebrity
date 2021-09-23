@@ -1,0 +1,23 @@
+/* The knows API is defined in the parent class Relation.
+      boolean knows(int a, int b); */
+//277. Find the Celebrity
+//TC = o(n)
+public class Solution extends Relation {
+    public int findCelebrity(int n) {
+        int survivor = 0;
+        for(int i = 0; i < n; i++) {
+            if(i != survivor) {
+                boolean b = knows(survivor, i);
+                if(b)
+                    survivor = i;
+            }
+        }
+        
+        for(int j = 0; j < n; j++) {
+            if(j != survivor)
+                if(knows(survivor,j) || !knows(j,survivor) )
+                    return -1;
+        }
+        return survivor;               
+    }
+}
