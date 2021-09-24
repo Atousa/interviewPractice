@@ -32,27 +32,6 @@ public class PowerSum {
 
 
 
-    public static void powerSum1(int X, int K) {
-
-        powerSumHelper1(X, K, 1,0);
-    }
-
-    private static void powerSumHelper1(int X, int K,int curNum, int curSum) {
-        if(curSum == X) {
-            numWay+=1;
-            return;
-        }
-        if(curNum == X/K || curSum > X)
-            return;
-        powerSumHelper1(X, K, curNum+1, curSum);
-
-        int times = 1;
-        for(int i = 0; i < K; i++) {
-            times*=curNum;
-        }
-            powerSumHelper1(X,K, curNum+1, curSum + times);
-    }
-
     public static void main(String[] args) {
         //powerSum1(100,2);
         //System.out.println(numWay);
