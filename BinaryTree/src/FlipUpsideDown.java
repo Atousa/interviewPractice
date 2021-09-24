@@ -1,29 +1,31 @@
-public class FlipUpsideDown {
-    //TC = 0(n) SC = 0(1)
-    static TreeNode flipUpsideDown(TreeNode root){
 
-        if (root==null || root.getLeftNode()==null) {
+    /*
+        private static class TreeNode{
+            public int val;
+            public TreeNode left_ptr;
+            public TreeNode right_ptr;
+        }
+    */
+    
+    /*
+        Complete the function below
+    */
+    static TreeNode flipUpsideDown(TreeNode root){
+        if(root == null) return root;
+      
+        if(root.left_ptr == null && root.right_ptr == null) {
             return root;
         }
-
-        TreeNode prev = null;
-        TreeNode cur = root;
-        TreeNode next = null;
-        TreeNode lastRight = null;
-
-        while (cur!=null) {
-            next = cur.getLeftNode();
-
-            cur.setLeftNode(lastRight);
-            lastRight = cur.getRightNode();
-
-            cur.setRightNode(prev);
-
-            prev = cur;
-            cur = next;
-        }
-
-        return prev;
+        
+        TreeNode newRoot =  flipUpsideDown(root.left_ptr);
+        
+        TreeNode temp = root.left_ptr;
+        root.left_ptr = null;
+        temp.left_ptr = root.right_ptr;
+        temp.right_ptr = root;
+        root.right_ptr = null;
+        
+        return newRoot;
+    
     }
 
-}
