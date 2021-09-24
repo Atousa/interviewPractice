@@ -61,7 +61,7 @@ public class UniqueBST {
             for (int j = 0; j < leftSubtree.size(); j++) {
                 list.add(leftSubtree.get(j));
                 for (int k = 0; k < rightSubtree.size(); k++) {
-                    list.add(leftSubtree.get(k))
+                    list.add(rightSubtree.get(k))
                 }
             }
             result.add(list);
