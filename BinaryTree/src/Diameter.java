@@ -32,7 +32,7 @@
         
         Diameter left = binary_tree_diameter_helper(root.left_ptr);
         Diameter right = binary_tree_diameter_helper(root.right_ptr);
-        
+//The length of a path between two nodes is represented by the number of edges between them.        
         int max = (left.height + right.height);
         if(max < left.diam){
             max = left.diam;
