@@ -1,0 +1,58 @@
+/*
+        private static class TreeNode{
+            public int val;
+            public TreeNode left_ptr;
+            public TreeNode right_ptr;
+        }
+
+        Complete the function below.
+    */
+    static Boolean path_sum(TreeNode root, int k){
+        if (root == null) return false;
+        
+        return helper(root, k);   
+    }
+    
+    static Boolean helper(TreeNode root, long k) {
+        if (root.left_ptr == null && root.right_ptr == null) {
+            return k - root.val == 0;
+        }
+        
+        if (root.left_ptr != null) { 
+            if (helper(root.left_ptr, k - root.val)) return true;
+        }
+
+        if (root.right_ptr != null) { 
+            if (helper(root.right_ptr, k - root.val)) return true;
+        }
+        
+        return false;        
+    }
+    
+    static Boolean path_sum2(TreeNode root, int k){
+        if(root == null) return false;
+        return path_sum_helper(root,k, 0);
+        
+
+    }
+    
+    static boolean path_sum_helper2(TreeNode root, int k, int curSum) {
+
+        if(root.left_ptr == null && root.left_ptr==null) {
+            if(curSum+root.val == k)
+                return true;
+        }
+        
+        if(root.left_ptr != null) {
+            boolean lb = path_sum_helper(root.left_ptr,k, curSum+root.val);
+             if(lb) return true;
+        } 
+       
+        if(root.right_ptr != null){
+            boolean rb = path_sum_helper(root.right_ptr,k, curSum+root.val);
+            if(rb) return true;
+        }
+       
+        return false;
+    }
+
