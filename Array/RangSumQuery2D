@@ -1,0 +1,59 @@
+//304 leetcode.
+
+    //Given a 2D matrix matrix, handle multiple queries of the following type:
+    //
+    //Calculate the sum of the elements of matrix inside the rectangle defined by its upper
+    // left corner (row1, col1) and lower right corner (row2, col2).
+class NumMatrix {
+    private int[][] runningSum;
+
+    public NumMatrix(int[][] matrix) {
+        
+        runningSum = new int[matrix.length][matrix[0].length];
+        int prefixSum = 0;
+        
+        for(int i= 0; i < matrix[0].length; i++) {
+            prefixSum+= matrix[0][i];
+            runningSum[0][i] = prefixSum;
+        }
+       prefixSum = 0;
+        
+        for(int i= 0; i < matrix.length; i++) {
+            prefixSum+= matrix[i][0];
+            runningSum[i][0] = prefixSum;
+        }
+        
+        for(int i = 1; i < matrix.length; i++) {
+            for(int j = 1; j < matrix[0].length; j++) {
+                runningSum[i][j] = matrix[i][j] + (runningSum[i-1][j] + runningSum[i][j-1] - 
+                                                   runningSum[i-1][j-1]);
+            }
+        }
+         
+    }
+    
+    public int sumRegion(int row1, int col1, int row2, int col2) {
+       if(runningSum.length == 0) return 0;
+        
+        if(row1 == 0 && col1 == 0) {
+            return runningSum[row2][col2];
+        }
+        if(row1 == 0){
+            return runningSum[row2][col2] - runningSum[row2][col1-1];
+        }
+        if(col1 == 0) {
+            return runningSum[row2][col2] - runningSum[row1-1][col2];
+        }
+        
+        
+        return runningSum[row2][col2] - runningSum[row1-1][col2] - runningSum[row2][col1-1] + runningSum[row1-1][col1-1];
+                
+        
+    }
+}
+
+/**
+ * Your NumMatrix object will be instantiated and called as such:
+ * NumMatrix obj = new NumMatrix(matrix);
+ * int param_1 = obj.sumRegion(row1,col1,row2,col2);
+ */
