@@ -1,0 +1,30 @@
+public static void mirror_image(TreeNode root) {
+       
+        if(root == null)
+            return;
+        
+        mirror_image(root.left);
+        mirror_image(root.right);
+        
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+    
+}
+public static void mirror_image(TreeNode root) {
+        // Write your code here
+        invert(root);
+    }
+    
+    public static TreeNode invert(TreeNode root) {
+        if(root == null) return null;
+        
+        TreeNode left = invert(root.left);
+        TreeNode right = invert(root.right);
+        
+        root.left = right;
+        root.right = left;
+        
+        return root;
+    }
+     
