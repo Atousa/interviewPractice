@@ -1,0 +1,45 @@
+
+    /*
+        private static class TreeNode{
+            public int val;
+            public TreeNode left_ptr;
+            public TreeNode right_ptr;
+        }
+    */
+
+    /*
+        Complete the below functions
+    */
+    public static class BTIterator{
+        
+        Stack<TreeNode> s = new Stack<>();
+
+        public BTIterator(TreeNode root){
+            while(root!= null) {
+                s.push(root);
+                root = root.left_ptr;
+            }
+        }
+
+        public boolean hasNext(){
+            return (!s.isEmpty());
+        }
+
+        public int next(){
+            TreeNode temp = s.pop();
+            if(temp.right_ptr!= null) {
+                s.push(temp.right_ptr);
+                if(temp.right_ptr.left_ptr!= null) {
+                    TreeNode cur = temp.right_ptr.left_ptr;
+                    while(cur!= null) {
+                        s.push(cur);
+                        cur = cur.left_ptr;
+                    }
+                }
+            }
+            return temp.val;
+        }
+        
+        
+    }
+
