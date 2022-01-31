@@ -12,7 +12,7 @@ public class SelectionSort {
         int minIdx = start;
         int minValue = arr[start];
 
-        for(int j = start; j < arr.length; j++) {
+        for(int j = start+1; j < arr.length; j++) {
             if(arr[j] < minValue) {
                 minValue = arr[j];
                 minIdx = j;
