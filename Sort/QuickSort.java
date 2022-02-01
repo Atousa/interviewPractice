@@ -74,8 +74,9 @@ public class QuickSort {
 
         while (greater <= e) {
             if (arr[greater] < pivot) {
-                smaller++;
+       
                 SwapElement.swapElement(arr, smaller, greater);
+		smaller++;
             }
             greater++;
         }
