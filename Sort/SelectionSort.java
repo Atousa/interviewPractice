@@ -2,38 +2,34 @@ public class SelectionSort {
 
     public static void selectionSort(int[] arr) {
         int len = arr.length;
-        for(int i = 0; i < len ; i++) {
-            int minIdx = findMin(arr, i);
-            swapMin(arr, i, minIdx);
+        for(int i = 0; i < len; i++) {
+            int minIdx = findMinIdx(arr, i,len);
+            mySwap(arr, minIdx, i);
         }
     }
 
-    private static int findMin(int[] arr, int start) {
+    public static int findMinIdx(int[] arr, int start, int len) {
         int minIdx = start;
-        int minValue = arr[start];
-
-        for(int j = start+1; j < arr.length; j++) {
-            if(arr[j] < minValue) {
-                minValue = arr[j];
-                minIdx = j;
+        for(int i = start; i < len ;i++) {
+            if(arr[i] < arr[minIdx] ){
+                minIdx = i;
             }
         }
-        return  minIdx;
+        return minIdx;
     }
 
-    private static void swapMin(int[] arr, int idx1, int idx2) {
-        int temp = arr[idx1];
-        arr[idx1] = arr[idx2];
-        arr[idx2]=temp;
+    public static void mySwap(int[] arr, int value1, int value2) {
+        int p = arr[value1];
+        arr[value1] = arr[value2];
+        arr[value2] = p;
     }
 
     public static void main(String[] args) {
-        int[] a = {23,22,15,16,13};
+        int[] a = {23,22,15,15,16,13,-1,67};
         selectionSort(a);
         for(int i=0; i < a.length; i++) {
             System.out.print(a[i]);
             System.out.print(",");
         }
     }
-
 }
