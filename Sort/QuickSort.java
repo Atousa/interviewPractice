@@ -4,7 +4,7 @@ import java.util.Random;
 // or not then we are going to have several cases of complexity
 // best case time complexity is o(nlogn)
 // average case is o(nlogn)
-// worse case is similar to average case in quick sort o(nlogn)
+// worse case is similar to average case in quick sort o(n^2)
 
 public class QuickSort {
 
