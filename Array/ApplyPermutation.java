@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * permute the elements of an array
+Permute the elements of an array following given order
  *
  */
 

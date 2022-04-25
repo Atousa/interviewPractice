@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
-Compute the next permutation using dictionary ordering
+leetcode 31 : Compute the next permutation using dictionary ordering
  */
 
 // knowing the fact that the permutation <0,1,2> is the smallest and <2,1,0>
